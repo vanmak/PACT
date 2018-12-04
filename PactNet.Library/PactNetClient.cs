@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using PactNet.Library;
@@ -23,5 +24,22 @@ namespace PactNet.Library {
         return null;
       }
     }
-  }
+
+        public async Task<User> Post(int id, object data)
+        {
+            using (var client = new HttpClient { BaseAddress = new Uri(Uri) })
+            {
+                var myContent = JsonConvert.SerializeObject(data);
+                var buffer = System.Text.Encoding.UTF8.GetBytes(myContent);
+                var byteContent = new ByteArrayContent(buffer);
+                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                var response = await client.PostAsync($"/api/user/{id}", byteContent);
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                    return JsonConvert.DeserializeObject<User>(await response.Content.ReadAsStringAsync());
+                return null;
+            }
+        }
+    }
 }

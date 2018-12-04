@@ -18,5 +18,11 @@ namespace Api.Controllers
         {
             return Ok(_service.Get(id));
         }
+
+        [HttpPost("{id}")]
+        public ActionResult<User> Post(int id)
+        {
+            return Ok(_service.Post(id));
+        }
     }
 }

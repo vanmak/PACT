@@ -26,5 +26,28 @@ namespace PactNet.Library
                 }
             };
         }
+        public User Post(int id)
+        {
+            return new User
+            {
+                Id = id,
+                Name = "Ivan Makogon",
+                Occupation = "Automation QA engineer",
+                Roles = new List<Role>{
+                    new Role {
+                        Name = "Test APi",
+                        Description = "Automation Test API test"
+                    },
+                    new Role {
+                        Name = "Test UI",
+                        Description = "Automation UI test"
+                    },
+                    new Role {
+                        Name = "Test Manual",
+                        Description = "Exploratory testing"
+                    }
+                }
+            };
+        }
     }
 }

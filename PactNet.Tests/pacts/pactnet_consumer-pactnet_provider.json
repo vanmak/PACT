@@ -7,6 +7,39 @@
   },
   "interactions": [
     {
+      "description": "A properly formatted Post request with the user id",
+      "providerState": "There is a user for the id",
+      "request": {
+        "method": "post",
+        "path": "/api/user/11"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "id": 11,
+          "name": "Ivan Makogon",
+          "occupation": "Automation QA engineer",
+          "roles": [
+            {
+              "name": "Test APi",
+              "description": "Automation Test API test"
+            },
+            {
+              "name": "Test UI",
+              "description": "Automation UI test"
+            },
+            {
+              "name": "Test Manual",
+              "description": "Exploratory testing"
+            }
+          ]
+        }
+      }
+    },
+    {
       "description": "A properly formatted GET request with the user id",
       "providerState": "There is a user for the id",
       "request": {
